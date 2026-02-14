@@ -1,1 +1,130 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #2D5A27;
+  --color-primary-dark: #1a3818;
+  --color-primary-light: #548c4e;
+  --color-accent-brown: #8B4513;
+  --color-background-light: #ffffff;
+  --color-background-dark: #171b17;
+  --color-surface-light: #f8faf8;
+
+  --font-display: "Manrope", sans-serif;
+
+  --shadow-soft: 0 20px 40px -15px rgba(45, 90, 39, 0.15);
+  --shadow-glow: 0 0 40px -10px rgba(45, 90, 39, 0.3);
+
+  --animate-revealUp: revealUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+
+  @keyframes revealUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+  .text-shadow-hero {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  }
+  .hide-scroll {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .hide-scroll::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background-light font-display text-slate-800 antialiased selection:bg-primary selection:text-white overflow-x-hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1; 
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; 
+  }
+}
+
+/* Component Classes */
+.glass-nav {
+  @apply fixed top-0 w-full z-50 transition-all duration-300 shadow-sm;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(111, 155, 105, 0.1);
+}
+
+.hero-overlay {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+}
+
+.organic-pattern {
+  background-image: radial-gradient(#6f9b69 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+  opacity: 0.1;
+}
+
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #20b857;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Animation Utilities */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  /* The animation is applied via JS adding a class or just using the utility if visible */
+}
+
+.reveal-visible {
+  animation: var(--animate-revealUp);
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }

@@ -1,0 +1,112 @@
+---
+const steps = [
+    {
+        icon: "water_drop",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA7Ww9i0RU44dga41MfDVineYXZDQgfvcAHVPpPUWj9O1V7s0mqJVJDmqfUo1fW7VvG3dxdY5Z7Qls3nBAZuRTDoPB904rKr1GCsEKBY5EhkkYAY6EKY_eMDxXhOM2Zr3Q0dcs_qflhB9DpF4LL13FaJU1SEMJmwI0WE4gLYPNO4FWaI83gfke8EhxPFM8AKxQmeUEINGtFBlHBdfYKY4n7aMT3ObDDl3ZVWSmfO_BkZK0JYXo5IQQzV3rlPxMRFSVSi2b5PX005DEu",
+        title: "Panen Selektif",
+        description:
+            "Singkong dipanen pada usia optimal 9-10 bulan untuk kadar pati terbaik.",
+        isImage: true,
+    },
+    {
+        icon: "water_drop",
+        title: "Fermentasi Alami",
+        description:
+            "Perendaman dengan enzim alami selama 12-24 jam untuk menghilangkan asam sianida.",
+        isImage: false,
+    },
+    {
+        icon: "wb_sunny",
+        title: "Pengeringan & Penepungan",
+        description:
+            "Dikeringkan higienis dan digiling halus hingga mencapai tekstur selembut sutra.",
+        isImage: false,
+    },
+    {
+        icon: "inventory_2",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCfV3hTMbeW7i67Jj9Z8tt-gArTH4l4DtUNuMNELoE2z19MV-4rI1Xm4x15zJPcXwpF3Cyf_aBgKgZ0G6aCwBRSAjLIR4140gvrMkB9WRdLBSIB2JYVb75PSxa3-4C0sSeR9h0Ox4bTu8S7NizjNUi1qdfWvm8t-yd3-WeVZVHPt6huYpNE91_Ia32XIKMe6LQFwIrGwTaQwoRK97u013C_bPDboA4PP-piiZndIR6LP64MA215uO-yqwTQDEylKvQNTetksmUDadOP",
+        title: "Pengemasan",
+        description:
+            "Dikemas dalam packaging premium untuk menjaga kesegaran dan nutrisi.",
+        isImage: true,
+    },
+];
+---
+
+<section id="process" class="py-24 bg-white relative overflow-hidden">
+    <div
+        class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-surface-light to-white"
+    >
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div
+            class="flex flex-col md:flex-row justify-between items-end mb-16 reveal-up"
+        >
+            <div class="max-w-xl">
+                <span
+                    class="text-primary font-bold uppercase tracking-wider text-sm"
+                    >Proses Kami</span
+                >
+                <h2
+                    class="text-3xl lg:text-4xl font-bold text-primary-dark mt-2"
+                >
+                    Perjalanan Dari Kebun ke Dapur
+                </h2>
+            </div>
+            <div class="hidden md:block">
+                <button
+                    class="text-primary hover:text-primary-dark font-semibold flex items-center gap-2 transition-all hover:translate-x-1 group cursor-pointer"
+                >
+                    Pelajari Lebih Detail
+                    <span
+                        class="material-icons-round group-hover:translate-x-1 transition-transform"
+                        >arrow_forward</span
+                    >
+                </button>
+            </div>
+        </div>
+
+        <div class="relative reveal-up delay-200">
+            <div
+                class="hidden md:block absolute top-12 left-0 w-full h-1 bg-gradient-to-r from-primary/10 via-primary/30 to-primary/10 rounded-full z-0"
+            >
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                {
+                    steps.map((step, index) => (
+                        <div class="text-center group cursor-default">
+                            <div class="w-24 h-24 mx-auto bg-white border-4 border-surface-light rounded-full flex items-center justify-center shadow-lg mb-6 group-hover:border-primary group-hover:shadow-primary/20 group-hover:scale-110 transition-all duration-300 relative">
+                                {step.isImage ? (
+                                    <img
+                                        src={step.image}
+                                        alt={step.title}
+                                        class="w-full h-full object-cover rounded-full opacity-90"
+                                    />
+                                ) : (
+                                    <div class="bg-primary/10 w-full h-full rounded-full flex items-center justify-center">
+                                        <span class="material-icons-round text-primary text-4xl">
+                                            {step.icon}
+                                        </span>
+                                    </div>
+                                )}
+
+                                <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shadow">
+                                    {index + 1}
+                                </div>
+                            </div>
+
+                            <h4 class="text-lg font-bold text-slate-800 mb-2">
+                                {step.title}
+                            </h4>
+                            <p class="text-sm text-slate-500 px-4">
+                                {step.description}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>

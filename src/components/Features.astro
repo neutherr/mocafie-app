@@ -1,0 +1,83 @@
+---
+const features = [
+    {
+        icon: "grain",
+        title: "100% Gluten Free",
+        description:
+            "Aman dikonsumsi bagi penderita celiac atau intoleransi gluten. Alternatif sempurna untuk tepung terigu.",
+    },
+    {
+        icon: "monitor_heart",
+        title: "Indeks Glikemik Rendah",
+        description:
+            "Membantu menjaga kadar gula darah tetap stabil, cocok untuk penderita diabetes dan diet sehat.",
+    },
+    {
+        icon: "spa",
+        title: "Kaya Serat Pangan",
+        description:
+            "Kandungan serat tinggi yang baik untuk pencernaan dan memberikan rasa kenyang lebih lama.",
+    },
+    {
+        icon: "science",
+        title: "Tanpa Pemutih",
+        description:
+            "Diproses secara alami tanpa bahan kimia pemutih, mempertahankan warna putih alami singkong.",
+    },
+    {
+        icon: "local_florist",
+        title: "Non-GMO",
+        description:
+            "Berasal dari bibit singkong lokal unggulan yang tidak dimodifikasi secara genetik.",
+    },
+    {
+        icon: "handshake",
+        title: "Dukung Petani Lokal",
+        description:
+            "Setiap pembelian Anda berkontribusi langsung pada kesejahteraan petani singkong di Jawa Barat.",
+    },
+];
+
+// Stagger delays based on index
+const getDelayClass = (index: number) => {
+    const delay = (index % 3) + 1; // 1, 2, 3
+    return `delay-${delay}00`;
+};
+---
+
+<section id="produk-features" class="py-24 bg-surface-light relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal-up">
+            <h2 class="text-3xl lg:text-4xl font-bold text-primary-dark mb-4">
+                Mengapa Memilih Mocafie?
+            </h2>
+            <p class="text-slate-600">
+                Dikembangkan dengan teknologi fermentasi termutakhir untuk
+                menghasilkan tepung singkong berkualitas premium yang lebih
+                sehat.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {
+                features.map((feature, index) => (
+                    <div
+                        class={`bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-soft hover:border-primary/20 transition-all group reveal-up ${getDelayClass(index)} cursor-default hover:-translate-y-1`}
+                    >
+                        <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300 shadow-sm group-hover:shadow-md">
+                            <span class="material-icons-round text-3xl">
+                                {feature.icon}
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">
+                            {feature.title}
+                        </h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">
+                            {feature.description}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

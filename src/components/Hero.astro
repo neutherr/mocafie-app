@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../assets/mocafiehero.png";
+---
+
+<section
+    id="home"
+    class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
+>
+    <div class="absolute inset-0 z-0">
+        <Image
+            src={heroImage}
+            alt="Mocafie product amidst lush green cassava leaves"
+            class="w-full h-full object-cover"
+        />
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/30 mix-blend-multiply"
+        >
+        </div>
+    </div>
+    <div
+        class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center pt-20"
+    >
+        <div class="reveal-up">
+            <h1
+                class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight mb-6 tracking-tight text-shadow-hero drop-shadow-[0_0_25px_rgba(45,90,39,0.5)]"
+            >
+                Tepung Mocaf <br /> Bebas Gluten
+            </h1>
+            <p
+                class="text-xl lg:text-3xl text-white font-medium mb-12 leading-relaxed max-w-4xl mx-auto text-shadow-glow drop-shadow-lg"
+            >
+                Alternatif sehat untuk hidup lebih baik. <br
+                    class="hidden md:block"
+                /> 100% dari singkong lokal Indonesia.
+            </p>
+            <div
+                class="flex flex-col sm:flex-row gap-6 justify-center items-center"
+            >
+                <button
+                    class="w-full sm:w-auto bg-[#2D5A27] hover:bg-[#1a3818] active:bg-[#152e13] text-white px-12 py-5 rounded-full font-bold text-lg shadow-xl shadow-green-900/50 transition-all transform hover:-translate-y-1 hover:scale-105 hover:shadow-2xl ring-2 ring-[#2D5A27] ring-offset-2 ring-offset-transparent cursor-pointer"
+                >
+                    Pesan Sekarang
+                </button>
+                <button
+                    class="w-full sm:w-auto bg-transparent hover:bg-white text-white hover:text-primary-dark active:bg-white/90 px-12 py-5 rounded-full font-bold text-lg shadow-xl transition-all transform hover:-translate-y-1 hover:scale-105 border-2 border-white hover:border-white backdrop-blur-sm cursor-pointer"
+                >
+                    Lihat Produk
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
