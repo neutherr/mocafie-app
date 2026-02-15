@@ -50,14 +50,14 @@ export function GalleryCarousel() {
     return (
         <Carousel
             plugins={[plugin.current]}
-            className="w-full max-w-xs md:max-w-4xl mx-auto"
+            className="w-full md:max-w-4xl mx-auto"
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
             opts={{
                 loop: true,
             }}
         >
-            <CarouselContent>
+            <CarouselContent className="-ml-6">
                 {galleryItems.map((item, index) => (
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 pl-6">
                         <div className="p-1">
